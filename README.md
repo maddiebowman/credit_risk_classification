@@ -48,10 +48,15 @@ from `sklearn.linear_metrics` import `confusion_matrix`, `classification_report`
 7. Evaluate our model's performance for accurately predicting an actual `0` or `1` by comparing what actually happened `y_test` against our model's prediction
 
     * Create a `confusion_matrix` to return a count of predicted values compared to the true values 
+    ![confusion_matrix](Images/confusion_matrix.png)
         *  Array returns results to be further classified as either: **`TP`**, **`TN`**, **`FP`**, **`FN`**
+
     * Create a `classification_report` for detailed insight on performance metrics of the model 
+    ![classification_report](Images/classification_report.png)
         *  Further analyze the model's performance by comparing the individual precision, recall and F1-score of our two classes `0` and `1`
         * Visualize the model's overall accuracy and weak points where incorrect predictions may have been made by the model
+        
+
 8. Analyze the predictions made by our linear regression model
 
 -----------
