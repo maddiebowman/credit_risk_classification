@@ -110,7 +110,41 @@ Overall and individual F1-scores for this model are all considered to be of acce
 
 Overall, this model demonstrates a very high accuracy ( **99%**) with exceptional performance, particularly in accurately predicting healthy loans `0`. While there is still a good balance between precision and recall for high-risk loans `1`, there is definitely room for improvement in precision.
 
-### Resources
+### Recommendations
+**1. Implement Automated Pre-Approval for Low-Risk Applicants** 
+* The most applicable use for the current model is to optimize lending patterns, specifically identifying **low-risk** borrowers for potential lending opportunities.
+* With high accuracy and reliability in classifying healthy loans, this model can streamline the approval process for low-risk applicants.
+
+**Recommended Application:** Automated pre-approval for low-risk applicants  
+
+**2. Adopt Two-Stage Approval Process for High-Risk Flags**
+* This model is still valuable for **high-risk** loan identification. However, it should be used with caution:
+    * 85% precision means that about 15% of loans flagged as high-risk *may actually be healthy*, potentially leading to missed lending opportunities.
+    * Address slightly lower precision by implementing a **two-stage approval process**, where this model is used for initial screening, then a secondary model or manual oversite is applied for further review of the loans flagged as high-risk.
+
+**Recommended Application:** Initial screening of loan applications where high-risk cases are flagged for further review 
+
+
+**3. Develop Complementary Models**
+While this model performs very well overall, there could be added benefits to developing an alternative or complementary models:
+* Build a specialized model focused on high-risk loan identification to further improve precision
+* Combine the logistic regression model with other algorithms (*decision trees, random foreests, etc.*)
+
+**4. Feature Engineering**
+Transform *or* create new features with the existing raw input data to expand on the current qualifications required for the model to achieve accurate predictions when assessing healthy (low-risk) vs. high-risk loans.  
+
+For a more comprehensive risk assessment, consider developing an alternative model that predicts beyond our current model's binary outcomes (Healthy = `0` *or* High-Risk = `1`), with potential to flag additional extracted or constructed features/parameters:
+* Monthly Payment Amount-to-Monthly Income Ratio
+* Total Projected Loss (*total $ amount lost if borrower defaults*)
+* Likelihood of Borrower Repayment
+* Estimated Return Time of Late Repayment (**if available data allows*)
+
+Increasing the amount of data the model trains on has the opportunity to further optimize the selection/pre-screening process for a lender, creating additional parameters that increase the complexity of requirements identifying low-risk vs. high-risk loans. By expanding our feature set and those targeted in our predictions, we provide the model with a more informative dataset that improves the overall accuracy of identifying healthy vs. high-risk loans.
+
+### Conclusion
+The linear regression model observed in ***credit_risk_classification.ipynb***, paired with the above-mentioned model recommendations, provides lenders a valuable tool for loan risk assessment. Once limitations are addressed and appropriately supplemented for desired performance outcome, this model has the power to optimize lending processes by implementing more informed, efficient, and accurate loan approval decisions.
+
+## Resources
 #### Documentation
 * [Confusion Matrix: scikit-learn Documentation](https://scikit-learn.org/stable/modules/generated/sklearn.metrics.confusion_matrix.html)
 * [F1-Score: scikit-learn Documentation](https://scikit-learn.org/stable/modules/generated/sklearn.metrics.f1_score.html)
@@ -120,4 +154,7 @@ Overall, this model demonstrates a very high accuracy ( **99%**) with exceptiona
 * [Understanding Individual Uses of X_test, X_train, y_test, y_train](https://stackoverflow.com/questions/60636444/what-is-the-difference-between-x-test-x-train-y-test-y-train-in-sklearn)
 * [Precision, Recall, and F1-Score](https://towardsdatascience.com/a-look-at-precision-recall-and-f1-score-36b5fd0dd3ec)
 * [F1-Score in Machine Learning](https://www.geeksforgeeks.org/f1-score-in-machine-learning/)
+* [Improve Machine Learning Accuracy](https://www.analyticsvidhya.com/blog/2015/12/improve-machine-learning-results/)
+* [Improve Accuracy of Regression Model](https://towardsdatascience.com/how-to-improve-the-accuracy-of-a-regression-model-3517accf8604)
+* [How to Improve the Accuracy of Regression Model?](https://www.shiksha.com/online-courses/articles/how-to-improve-the-accuracy-of-regression-model/)
 
